@@ -1,0 +1,54 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    {% for post in blogs.posts.values() %}
+        {% if post.published %}
+            <article class="content-section py-3 px-4 mb-4">
+                <div class="d-flex align-items-start gap-4">
+
+                    <div class="flex-grow-1">
+                        <div class="article-metadata mb-2">
+                            <span class="me-2 fw-semibold">
+                                {{ post.author }}
+                            </span>
+                            <small class="text-body-secondary">
+                                {{ post.date }}
+                            </small>
+                        </div>
+
+                        <span class="badge bg-primary mb-2">
+                            {{ post.category }}
+                        </span>
+
+                        <h2 class="h4">
+                            <a class="article-title"
+                               href="#{{ post.slug }}">
+                                {{ post.title }}
+                            </a>
+                        </h2>
+
+                        <p class="article-content">
+                            {{ post.excerpt }}
+                        </p>
+
+                        <small class="text-body-secondary">
+                            {{ post.reading_time }} min read
+                        </small>
+
+                        <div class="mt-2">
+                            {% for tag in post.tags %}
+                                <span class="badge bg-body-secondary text-body border me-1">
+                                    {{ tag }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+        {% endif %}
+    {% else %}
+        <p class="text-body-secondary">No blog posts available.</p>
+    {% endfor %}
+{% endblock content %}

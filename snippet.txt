@@ -1,0 +1,13 @@
+student = {
+    "student1": {
+        "name": "Aman",
+        "age": 20,
+        "course": "Python"
+    },
+    "student2": {
+        "name": "Simran",
+        "age": 21,
+        "course": "Java"
+    }
+}
+
